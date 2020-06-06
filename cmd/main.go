@@ -11,9 +11,10 @@ import (
 
 func main() {
 	wakaAPIKey := os.Getenv("WAKATIME_API_KEY")
-
 	ghToken := os.Getenv("GH_TOKEN")
 	ghUsername := os.Getenv("GH_USER")
+	gistID := os.Getenv("GIST_ID")
+
 	box := wakabox.NewBox(wakaAPIKey, ghUsername, ghToken)
 
 	lines, err := box.GetStats(context.Background())
@@ -22,7 +23,7 @@ func main() {
 	}
 
 	ctx := context.Background()
-	gistID := "d3798a7bc234087e75aed5716474f42a"
+
 	filename := "📊 Weekly development breakdown"
 	gist, err := box.GetGist(ctx, gistID)
 	if err != nil {
