@@ -11,6 +11,7 @@
 ---
 [English](./README.md) | 简体中文
 
+![Update gist with WakaTime stats](https://github.com/YouEclipse/waka-box-go/workflows/Update%20gist%20with%20WakaTime%20stats/badge.svg?branch=master)
 
 > 📌✨ 查看更多像这样的 gist 项目,传送门:  https://github.com/matchai/awesome-pinned-gists
 
@@ -27,9 +28,9 @@
 ### 开始安装
 
 1. Fork 这个仓库
-1. 编辑  `.github/workflows/schedule.yml` 中的[环境变量](https://github.com/YouEclipse/waka-box-go/blob/master/.github/workflows/schedule.yml#L13-L15) :
+1. 编辑  `.github/workflows/schedule.yml` 中的[环境变量](https://github.com/YouEclipse/waka-box-go/actions/runs/126970182/workflow#L17-L19) :
 
-   - **GIST_ID:** ID 是 gist url 的后缀 : `https://gist.github.com/YouEclipse`**`d3798a7bc234087e75aed5716474f42a`**.
+   - **GIST_ID:** ID 是 gist url 的后缀 : `https://gist.github.com/YouEclipse`**`9bc7025496e478f439b9cd43eba989a4`**.
 
 1. 前往 fork 后的仓库的 **Settings > Secrets**
 1. 添加以下环境变量:

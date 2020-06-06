@@ -12,6 +12,7 @@
 English | [简体中文](./README_zh.md)
 
 
+![Update gist with WakaTime stats](https://github.com/YouEclipse/waka-box-go/workflows/Update%20gist%20with%20WakaTime%20stats/badge.svg?branch=master)
 > 📌✨ For more pinned-gist projects like this one, check out: https://github.com/matchai/awesome-pinned-gists
 
 ## Setup
@@ -27,9 +28,9 @@ English | [简体中文](./README_zh.md)
 ### Project setup
 
 1. Fork this repo
-1. Edit the [environment variable](https://github.com/YouEclipse/waka-box-go/blob/master/.github/workflows/schedule.yml#L13-L15) in `.github/workflows/schedule.yml`:
+1. Edit the [environment variable](https://github.com/YouEclipse/waka-box-go/actions/runs/126970182/workflow#L17-L19) in `.github/workflows/schedule.yml`:
 
-   - **GIST_ID:** The ID portion from your gist url: `https://gist.github.com/YouEclipse`**`d3798a7bc234087e75aed5716474f42a`**.
+   - **GIST_ID:** The ID portion from your gist url: `https://gist.github.com/YouEclipse/`**`9bc7025496e478f439b9cd43eba989a4`**.
 
 1. Go to the repo **Settings > Secrets**
 1. Add the following environment variables:
