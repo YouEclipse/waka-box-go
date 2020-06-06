@@ -1,0 +1,37 @@
+# 
+
+
+<p align="center">
+  <img width="400" src="https://user-images.githubusercontent.com/4658208/60469862-2e40bf00-9c2c-11e9-87f7-afe164648de4.png">
+  <h3 align="center">waka-box-go</h3>
+  <p align="center">📊 一个能够自动更新的 waketime 每周统计的 <a href="https://gist.github.com/">Github Gist</a>. </p>
+  <p align="center">  Golang 实现，查看原始版本  <a href="https://github.com/matchai/waka-box">waka-box</a>
+</p>
+
+---
+[English](./README.md) | 简体中文
+
+
+> 📌✨ 查看更多像这样的 gist 项目,传送门:  https://github.com/matchai/awesome-pinned-gists
+
+## 安装
+
+### 前置工作
+
+1. 创建一个公开的 GitHub Gist (https://gist.github.com/)
+1. 创建一个拥有 `gist` 权限的 token 并复制. (https://github.com/settings/tokens/new)
+1. 创建一个 WakaTime 账号（如果已经有了可以跳过) (https://wakatime.com/signup)
+1. 在 WakaTime 的 profile settings (https://wakatime.com/settings/profile) 确保 `Display coding activity publicly` 和 `Display languages, editors, operating systems publicly` 被勾选了
+1. 在你的 WakaTime 的 account settings, 复制 WakaTime API Key (https://wakatime.com/settings/api-key)
+
+### 开始安装
+
+1. Fork 这个仓库
+1. 编辑  `.github/workflows/schedule.yml` 中的[环境变量](https://github.com/YouEclipse/waka-box-go/blob/master/.github/workflows/schedule.yml#L13-L15) :
+
+   - **GIST_ID:** ID 是 gist url 的后缀 : `https://gist.github.com/YouEclipse`**`d3798a7bc234087e75aed5716474f42a`**.
+
+1. 前往 fork 后的仓库的 **Settings > Secrets**
+1. 添加以下环境变量:
+   - **GH_TOKEN:** 前置工作中生成的 github token.
+   - **WAKATIME_API_KEY:** WakaTime 的 API key.
