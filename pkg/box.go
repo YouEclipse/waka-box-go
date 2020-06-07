@@ -43,8 +43,8 @@ func (b *Box) GetStats(ctx context.Context) ([]string, error) {
 			break
 		}
 
-		line := pad(*stat.Name, " ", 11) + " " +
-			pad(*stat.Text, " ", 14) + " " +
+		line := pad(*stat.Name, " ", 10) + " " +
+			pad("🕓"+*stat.Text, " ", 15) + " " +
 			GenerateBarChart(ctx, *stat.Percent, 21) + " " +
 			pad(fmt.Sprintf("%.1f%%", *stat.Percent), " ", 5)
 		lines = append(lines, line)
