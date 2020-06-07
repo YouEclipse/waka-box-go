@@ -35,7 +35,12 @@ English | [简体中文](./README_zh.md)
 1. Go to the repo **Settings > Secrets**
 1. Add the following environment variables:
    - **GH_TOKEN:** The GitHub token generated above.
-   - **WAKATIME_API_KEY:** The API key for your WakaTime account.
+   - **WAKATIME_API_KEY:** The API key for your WakaTime account. 
+
+## 🕵️ How it works
+1. Get stats from  WakaTime API 
+1. Update Gist with Github API 
+1. Use Github Actions for updating Gist  
 
 ## 📄 License
 This project is licensed under [Apache-2.0](./LICENSE)
