@@ -4,7 +4,7 @@
 <p align="center">
   <img width="400" src="https://user-images.githubusercontent.com/4658208/60469862-2e40bf00-9c2c-11e9-87f7-afe164648de4.png">
   <h3 align="center">waka-box-go</h3>
-  <p align="center">📊 一个能够自动更新的 waketime 每周统计的 <a href="https://gist.github.com/">Github Gist</a>. </p>
+  <p align="center">📊 将你的 WakaTime 每周统计显示在  pined gist </p>
   <p align="center">  Golang 实现，查看原始版本  <a href="https://github.com/matchai/waka-box">waka-box</a>
   <p align="center">
     <a href="https://github.com/YouEclipse/waka-box-go/workflows/Update%20gist%20with%20WakaTime%20stats/badge.svg?branch=master"><img src="https://github.com/YouEclipse/waka-box-go/workflows/Update%20gist%20with%20WakaTime%20stats/badge.svg?branch=master" alt="Update gist with WakaTime stats"></a>
