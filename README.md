@@ -38,9 +38,9 @@ English | [简体中文](./README_zh.md)
    - **WAKATIME_API_KEY:** The API key for your WakaTime account. 
 
 ## 🕵️ How it works
-1. Get stats from  WakaTime API 
-1. Update Gist with Github API 
-1. Use Github Actions for updating Gist  
+- Get stats from  WakaTime API 
+- Update Gist with Github API 
+- Use Github Actions for updating Gist  
 
 ## 📄 License
 This project is licensed under [Apache-2.0](./LICENSE)

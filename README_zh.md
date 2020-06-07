@@ -43,9 +43,9 @@
    - **WAKATIME_API_KEY:** WakaTime 的 API key. 
   
 ## 🕵️ 工作原理
-1. 基于 WakaTime API 获取统计数据
-1. 基于 Github API 更新 Gist
-1. 使用 Github Actions 自动更新 Gist  
+- 基于 WakaTime API 获取统计数据
+- 基于 Github API 更新 Gist
+- 使用 Github Actions 自动更新 Gist  
 
 ## 📄  开源协议
 本项目使用 [Apache-2.0](./LICENSE) 协议
