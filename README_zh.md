@@ -26,7 +26,7 @@
 
 1. 创建一个公开的 GitHub Gist (https://gist.github.com/)
 1. 创建一个拥有 `gist` 权限的 token 并复制. (https://github.com/settings/tokens/new)
-1. 创建一个 WakaTime 账号（如果已经有了可以跳过) (https://wakatime.com/signup)
+1. 创建一个 WakaTime 账号(如果已经有了可以跳过) (https://wakatime.com/signup)
 1. 在 WakaTime 的 profile settings (https://wakatime.com/settings/profile) 确保 `Display coding activity publicly` 和 `Display languages, editors, operating systems publicly` 被勾选了
 1. 在你的 WakaTime 的 account settings, 复制 WakaTime API Key (https://wakatime.com/settings/api-key)
 
