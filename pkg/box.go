@@ -41,7 +41,7 @@ func (b *Box) GetStats(ctx context.Context) ([]string, error) {
 
 	if languages := stats.Data.Languages; len(languages) > 0 {
 		lines := make([]string, 0)
-		for _, stat := range stats.Data.Languages {
+		for _, stat := range languages {
 			if max >= 5 {
 				break
 			}
