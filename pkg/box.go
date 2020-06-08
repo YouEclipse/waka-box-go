@@ -2,6 +2,7 @@ package wakabox
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"math"
 	"strings"
@@ -37,20 +38,25 @@ func (b *Box) GetStats(ctx context.Context) ([]string, error) {
 		return nil, err
 	}
 	max := 0
-	lines := make([]string, 0)
-	for _, stat := range stats.Data.Languages {
-		if max >= 5 {
-			break
-		}
 
-		line := pad(*stat.Name, " ", 9) + " " +
-			pad("🕓 "+*stat.Text, " ", 15) + " " +
-			GenerateBarChart(ctx, *stat.Percent, 21) + " " +
-			pad(fmt.Sprintf("%.1f%%", *stat.Percent), " ", 5)
-		lines = append(lines, line)
-		max++
+	if languages := stats.Data.Languages; len(languages) > 0 {
+		lines := make([]string, 0)
+		for _, stat := range languages {
+			if max >= 5 {
+				break
+			}
+
+			line := pad(*stat.Name, " ", 9) + " " +
+				pad("🕓 "+*stat.Text, " ", 15) + " " +
+				GenerateBarChart(ctx, *stat.Percent, 21) + " " +
+				pad(fmt.Sprintf("%.1f%%", *stat.Percent), " ", 5)
+			lines = append(lines, line)
+			max++
+		}
+		return lines, nil
+	} else {
+		return nil, errors.New("Insufficient statistics")
 	}
-	return lines, nil
 }
 
 // GetGist gets the gist from github.com.
