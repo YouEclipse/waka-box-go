@@ -11,7 +11,7 @@ on:
 jobs:
 
   build:
-    name: Upddate-gist
+    name: Update-gist
     runs-on: ubuntu-latest
     env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
