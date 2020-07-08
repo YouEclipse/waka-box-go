@@ -7,7 +7,12 @@ import (
 
 	wakabox "github.com/YouEclipse/waka-box-go/pkg"
 	"github.com/google/go-github/github"
+	"github.com/joho/godotenv"
 )
+
+func init() {
+	godotenv.Load(".env")
+}
 
 func main() {
 	wakaAPIKey := os.Getenv("WAKATIME_API_KEY")
