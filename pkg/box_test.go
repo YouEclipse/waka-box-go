@@ -8,7 +8,12 @@ import (
 	"time"
 
 	"github.com/google/go-github/github"
+	"github.com/joho/godotenv"
 )
+
+func init() {
+	godotenv.Load("../.env")
+}
 
 func TestGenerateBarChart(t *testing.T) {
 	type args struct {
