@@ -2,7 +2,6 @@ package wakabox
 
 import (
 	"context"
-	"errors"
 	"fmt"
 	"math"
 	"strings"
@@ -54,9 +53,8 @@ func (b *Box) GetStats(ctx context.Context) ([]string, error) {
 			max++
 		}
 		return lines, nil
-	} else {
-		return nil, errors.New("Insufficient statistics")
 	}
+	return []string{"Still Gathering Statistics..."}, nil
 }
 
 // GetGist gets the gist from github.com.
