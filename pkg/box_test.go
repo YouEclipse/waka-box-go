@@ -92,7 +92,7 @@ func TestBox_Gist(t *testing.T) {
 	box := NewBox(wakaAPIKey, ghUsername, ghToken)
 
 	ctx := context.Background()
-	gistID := "d3798a7bc234087e75aed5716474f42a"
+	gistID := os.Getenv("GIST_ID")
 	filename := "📊 Weekly development breakdown"
 	gist, err := box.GetGist(ctx, gistID)
 	if err != nil {
@@ -101,7 +101,6 @@ func TestBox_Gist(t *testing.T) {
 
 	f := gist.Files[github.GistFilename(filename)]
 
-	//f.Filename = github.String("testfilename")
 	f.Content = github.String(time.Now().UTC().Format(time.RFC3339))
 	gist.Files[github.GistFilename(filename)] = f
 	err = box.UpdateGist(ctx, gistID, gist)
