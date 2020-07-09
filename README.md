@@ -37,7 +37,7 @@ English | [简体中文](./README_zh.md)
    - **GIST_ID:** The ID portion from your gist url: `https://gist.github.com/YouEclipse/`**`9bc7025496e478f439b9cd43eba989a4`**.
    - **GIST_BARSTYLE:** Background of the progress bar. Default is "SOLIDLT" other options include "SOLIDMD", "SOLIDDK" for medium and dark backgrounds, "EMPTY" for blank background, and "UNDERSCORE" for a line along the bottom.
    - **GIST_BARLENGTH:** Length of the progress bar. Default is 21. Set to -1 to auto size the bar.
-   - **GIST_TIMESTYLE** Abreviate the time text. Default is "LONG" ( "# hrs # mins" ). "SHORT" updates the text to "#h#m".
+   - **GIST_TIMESTYLE** Abbreviate the time text. Default is "LONG" ( "# hrs # mins" ). "SHORT" updates the text to "#h#m".
 
 1. Go to the repo **Settings > Secrets**
 1. Add the following environment variables:
