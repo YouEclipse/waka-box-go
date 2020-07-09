@@ -20,7 +20,13 @@ func main() {
 	ghUsername := os.Getenv("GH_USER")
 	gistID := os.Getenv("GIST_ID")
 
-	box := wakabox.NewBox(wakaAPIKey, ghUsername, ghToken)
+	style := wakabox.BoxStyle{
+		BarStyle:  os.Getenv("GIST_BARSTYLE"),
+		BarLength: os.Getenv("GIST_BARLENGTH"),
+		TimeStyle: os.Getenv("GIST_TIMESTYLE"),
+	}
+
+	box := wakabox.NewBox(wakaAPIKey, ghUsername, ghToken, style)
 
 	lines, err := box.GetStats(context.Background())
 	if err != nil {
