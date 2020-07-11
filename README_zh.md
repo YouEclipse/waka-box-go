@@ -36,9 +36,14 @@
 1. 编辑  `.github/workflows/schedule.yml` 中的[环境变量](https://github.com/YouEclipse/waka-box-go/actions/runs/126970182/workflow#L17-L19) :
 
    - **GIST_ID:** ID 是 gist url 的后缀 : `https://gist.github.com/YouEclipse/`**`9bc7025496e478f439b9cd43eba989a4`**.
+  
+        **以下为可选参数,感谢[@AarynSmith](https://github.com/AarynSmith)的PR([#11](https://github.com/YouEclipse/waka-box-go/pull/11))**
+   - **GIST_BARSTYLE:** 进度条的背景样式. 默认是 "SOLIDLT"，其他样式包括 "SOLIDMD", "SOLIDDK" (黑色), "EMPTY" (空白) 和 "UNDERSCORE"（下划线）.
+   - **GIST_BARLENGTH:** 条形图的长度. 默认 21. 设置为 -1 可以自动适配.
+   - **GIST_TIMESTYLE** 时间文本的样式. 默认是 "LONG" ( "# hrs # mins" ). "SHORT" 则是 "#h#m".
 
-1. 前往 fork 后的仓库的 **Settings > Secrets**
-1. 添加以下环境变量:
+2. 前往 fork 后的仓库的 **Settings > Secrets**
+3. 添加以下环境变量:
    - **GH_TOKEN:** 前置工作中生成的 github token.
    - **WAKATIME_API_KEY:** WakaTime 的 API key. 
   
