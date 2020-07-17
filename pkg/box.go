@@ -71,14 +71,14 @@ func NewBox(wakaAPIKey, ghUsername, ghToken string, style BoxStyle) *Box {
 // GetStats gets the language stats form wakatime.com.
 func (b *Box) GetStats(ctx context.Context) ([]string, error) {
 	stats, err := b.wakatime.Stats.Current(ctx, wakatime.RangeLast7Days, &wakatime.StatsQuery{})
-	if err != nil {
-		return nil, err
+	if err != nil && err.Error()[:38] != "response code expects 200, but got 202" { // Continue on 202 errors.
+		return nil, fmt.Errorf("wakabox.GetStats: Error getting Current Stats: %w", err)
 	}
 
 	if languages := stats.Data.Languages; len(languages) > 0 {
 		lines, err := b.GenerateGistLines(ctx, languages)
 		if err != nil {
-			return nil, err
+			return nil, fmt.Errorf("wakabox.GetStats: Error generating gist lines: %w", err)
 		}
 
 		return lines, nil
@@ -90,7 +90,7 @@ func (b *Box) GetStats(ctx context.Context) ([]string, error) {
 func (b *Box) GetGist(ctx context.Context, id string) (*github.Gist, error) {
 	gist, _, err := b.github.Gists.Get(ctx, id)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("wakabox.GetGist: Error getting gist from github: %w", err)
 	}
 	return gist, nil
 }
@@ -98,7 +98,10 @@ func (b *Box) GetGist(ctx context.Context, id string) (*github.Gist, error) {
 // UpdateGist updates the gist.
 func (b *Box) UpdateGist(ctx context.Context, id string, gist *github.Gist) error {
 	_, _, err := b.github.Gists.Edit(ctx, id, gist)
-	return err
+	if err != nil {
+		return fmt.Errorf("wakabox.UpdateGist: Error updating gist: %w", err)
+	}
+	return nil
 }
 
 // GenerateGistLines takes an slice of wakatime.StatItems, and generates a line for the gist.
