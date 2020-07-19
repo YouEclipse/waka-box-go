@@ -71,7 +71,7 @@ func NewBox(wakaAPIKey, ghUsername, ghToken string, style BoxStyle) *Box {
 // GetStats gets the language stats form wakatime.com.
 func (b *Box) GetStats(ctx context.Context) ([]string, error) {
 	stats, err := b.wakatime.Stats.Current(ctx, wakatime.RangeLast7Days, &wakatime.StatsQuery{})
-	if err != nil && err.Error()[:38] != "response code expects 200, but got 202" { // Continue on 202 errors.
+	if err != nil {
 		return nil, fmt.Errorf("wakabox.GetStats: Error getting Current Stats: %w", err)
 	}
 
