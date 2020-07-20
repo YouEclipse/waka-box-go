@@ -8,7 +8,7 @@ import (
 	"strings"
 	"unicode/utf8"
 
-	wakatime "github.com/YouEclipse/wakatime-go/pkg"
+	"github.com/YouEclipse/wakatime-go/pkg/wakatime"
 	"github.com/google/go-github/github"
 )
 
