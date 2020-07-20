@@ -5,7 +5,7 @@ import (
 	"os"
 	"strings"
 
-	wakabox "github.com/YouEclipse/waka-box-go/pkg"
+	"github.com/YouEclipse/waka-box-go/pkg/wakabox"
 	"github.com/google/go-github/github"
 	"github.com/joho/godotenv"
 )
