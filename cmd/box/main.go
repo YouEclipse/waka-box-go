@@ -21,13 +21,13 @@ func main() {
 	ghToken := os.Getenv("GH_TOKEN")
 	ghUsername := os.Getenv("GH_USER")
 	gistID := os.Getenv("GIST_ID")
-	updateOption := os.Getenv("UPDATE_OPTION") // options for update: gist,markdown,gist_and_markdown
-	markdownFile := os.Getenv("MARKDOWN_FILE") // the filename of markdown
+	updateOption := os.Getenv("UPDATE_OPTION") // options for update: GIST,MARKDOWN,GIST_AND_MARKDOWN
+	markdownFile := os.Getenv("MARKDOWN_FILE") // the markdown filename
 
 	var updateGist, updateMarkdown bool
-	if updateOption == "markdown" {
+	if updateOption == "MARKDOWN" {
 		updateMarkdown = true
-	} else if updateOption == "gist_and_markdown" {
+	} else if updateOption == "GIST_AND_MARKDOWN" {
 		updateGist = true
 		updateMarkdown = true
 	} else {
