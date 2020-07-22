@@ -18,9 +18,9 @@ English | [简体中文](./README_zh.md)
 
 ## 💻 Setup
 
-> if only want's to update a markdown,like profile README,skip step 1 and step 2.
-
 ### 🎒 Prep work
+
+> if only want's to update a markdown,like profile README,skip step 1 and step 2.
 
 1. Create a new public GitHub Gist with name `📊 Weekly development breakdown` (https://gist.github.com/)
 1. Create a token with the `gist` scope and copy it. (https://github.com/settings/tokens/new)
