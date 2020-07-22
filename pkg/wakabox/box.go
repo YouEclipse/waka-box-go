@@ -107,27 +107,30 @@ func (b *Box) UpdateGist(ctx context.Context, id string, gist *github.Gist) erro
 	return nil
 }
 
-func (b *Box) UpdateReadme(ctx context.Context, filename string, content []byte) error {
-	readme, err := ioutil.ReadFile(filename)
+func (b *Box) UpdateMarkdown(ctx context.Context, title, filename string, content []byte) error {
+	md, err := ioutil.ReadFile(filename)
 	if err != nil {
-		return fmt.Errorf("wakabox.UpdateReadme: Error reade a file: %w", err)
+		return fmt.Errorf("wakabox.UpdateMarkdown: Error reade a file: %w", err)
 	}
 
 	start := []byte("<!-- waka-box start -->")
-	before := readme[:bytes.Index(readme, start)+len(start)]
+	before := md[:bytes.Index(md, start)+len(start)]
 	end := []byte("<!-- waka-box end -->")
-	after := readme[bytes.Index(readme, end):]
+	after := md[bytes.Index(md, end):]
 
-	newReadme := bytes.NewBuffer(nil)
-	newReadme.Write(before)
-	newReadme.WriteString("\n")
-	newReadme.Write(content)
-	newReadme.WriteString("\n")
-	newReadme.Write(after)
+	newMd := bytes.NewBuffer(nil)
+	newMd.Write(before)
+	newMd.WriteString("\n" + title + "\n")
+	newMd.WriteString("```text\n")
+	newMd.Write(content)
+	newMd.WriteString("\n")
+	newMd.WriteString("```\n")
+	newMd.WriteString("<!-- Powered by https://github.com/YouEclipse/waka-box-go . -->\n")
+	newMd.Write(after)
 
-	err = ioutil.WriteFile(filename, newReadme.Bytes(), os.ModeAppend)
+	err = ioutil.WriteFile(filename, newMd.Bytes(), os.ModeAppend)
 	if err != nil {
-		return fmt.Errorf("wakabox.UpdateReadme: Error write a file: %w", err)
+		return fmt.Errorf("wakabox.UpdateMarkdown: Error write a file: %w", err)
 	}
 
 	return nil
