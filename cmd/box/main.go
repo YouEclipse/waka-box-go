@@ -63,7 +63,7 @@ func main() {
 		if err != nil {
 			panic(err)
 		}
-
+		fmt.Println("updating gist successfully")
 	}
 
 	if updateMarkdown && markdownFile != "" {
@@ -80,6 +80,7 @@ func main() {
 		if err != nil {
 			fmt.Println(err)
 		}
+		fmt.Println("updating markdown successfully on", markdownFile)
 	}
 
 }
