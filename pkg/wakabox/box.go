@@ -1,9 +1,12 @@
 package wakabox
 
 import (
+	"bytes"
 	"context"
 	"fmt"
+	"io/ioutil"
 	"math"
+	"os"
 	"strconv"
 	"strings"
 	"unicode/utf8"
@@ -101,6 +104,32 @@ func (b *Box) UpdateGist(ctx context.Context, id string, gist *github.Gist) erro
 	if err != nil {
 		return fmt.Errorf("wakabox.UpdateGist: Error updating gist: %w", err)
 	}
+	return nil
+}
+
+func (b *Box) UpdateReadme(ctx context.Context, filename string, content []byte) error {
+	readme, err := ioutil.ReadFile(filename)
+	if err != nil {
+		return fmt.Errorf("wakabox.UpdateReadme: Error reade a file: %w", err)
+	}
+
+	start := []byte("<!-- waka-box start -->")
+	before := readme[:bytes.Index(readme, start)+len(start)]
+	end := []byte("<!-- waka-box end -->")
+	after := readme[bytes.Index(readme, end):]
+
+	newReadme := bytes.NewBuffer(nil)
+	newReadme.Write(before)
+	newReadme.WriteString("\n")
+	newReadme.Write(content)
+	newReadme.WriteString("\n")
+	newReadme.Write(after)
+
+	err = ioutil.WriteFile(filename, newReadme.Bytes(), os.ModeAppend)
+	if err != nil {
+		return fmt.Errorf("wakabox.UpdateReadme: Error write a file: %w", err)
+	}
+
 	return nil
 }
 
