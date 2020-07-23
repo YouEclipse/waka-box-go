@@ -18,9 +18,9 @@ English | [简体中文](./README_zh.md)
 
 ## 💻 Setup
 
-> if only want's to update a markdown,like profile README,skip step 1 and step 2.
-
 ### 🎒 Prep work
+
+> if only want's to update a markdown,like profile README,skip step 1 and step 2.
 
 1. Create a new public GitHub Gist with name `📊 Weekly development breakdown` (https://gist.github.com/)
 1. Create a token with the `gist` scope and copy it. (https://github.com/settings/tokens/new)
@@ -37,6 +37,8 @@ English | [简体中文](./README_zh.md)
     <!-- waka-box end -->
    ```
 1. Edit the [environment variable](https://github.com/YouEclipse/waka-box-go/actions/runs/126970182/workflow#L17-L19) in `.github/workflows/schedule.yml`:
+
+   > For updating github profile README,you can follow [waka-box.yml](https://github.com/YouEclipse/YouEclipse/blob/master/.github/workflows/waka-box.yml) in [YouEclipse](https://github.com/YouEclipse/YouEclipse) to create a Action in your README repo.
 
    - **UPDATE_OPTION:** Default is `GIST`.For only update a markdown file ,set to`MARKDOWN`,and ignore environment variables with prefix **GIST\_** below.Set to `GIST_AND_MARKDOWN` updates both the gist and the markdown file.
    - **MARKDOWN_FILE:** The filename for the markdown file.
