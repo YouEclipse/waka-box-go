@@ -32,11 +32,15 @@
 
 1. Fork 这个仓库
 2. 如果需要更新到某个 markdown 文件，请在对应文件需要更新的地方添加以下注释
+
    ```markdown
     <!-- waka-box start -->
     <!-- waka-box end -->
    ```
+
 3. 编辑 `.github/workflows/schedule.yml` 中的[环境变量](https://github.com/YouEclipse/waka-box-go/actions/runs/126970182/workflow#L17-L19) :
+
+   > 如果是需要更新 github profile README,可以在 profile README 的项目中创建 action，具体配置参考 我的 [YouEclipse](https://github.com/YouEclipse/YouEclipse) 中的 [waka-box.yml](https://github.com/YouEclipse/YouEclipse/blob/master/.github/workflows/waka-box.yml)
 
    - **UPDATE_OPTION:** 默认是 `GIST`,如果只想更新到某个 markdown 文件，设置为`MARKDOWN`,并可以忽略以下以 **GIST\_** 开头的环境变量，如果想同时更新 gist 和 markdown,设置为`GIST_AND_MARKDOWN`
    - **MARKDOWN_FILE:** 如果是更新到某个 markdown 文件，填写 markdown 文件名(包含相对路径或者绝对路径)

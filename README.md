@@ -38,6 +38,8 @@ English | [简体中文](./README_zh.md)
    ```
 1. Edit the [environment variable](https://github.com/YouEclipse/waka-box-go/actions/runs/126970182/workflow#L17-L19) in `.github/workflows/schedule.yml`:
 
+   > For updating github profile README,you can follow [waka-box.yml](https://github.com/YouEclipse/YouEclipse/blob/master/.github/workflows/waka-box.yml) in [YouEclipse](https://github.com/YouEclipse/YouEclipse) to create a Action in your README repo.
+
    - **UPDATE_OPTION:** Default is `GIST`.For only update a markdown file ,set to`MARKDOWN`,and ignore environment variables with prefix **GIST\_** below.Set to `GIST_AND_MARKDOWN` updates both the gist and the markdown file.
    - **MARKDOWN_FILE:** The filename for the markdown file.
 
