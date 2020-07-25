@@ -3,7 +3,7 @@
 <p align="center">
   <img width="400" src="https://user-images.githubusercontent.com/8252317/83985147-9afb2800-a96a-11ea-9841-eec3a1f61d75.png">
   <h3 align="center">waka-box-go</h3>
-  <p align="center">📊 Update a pinned gist to contain your weekly WakaTime stats. </p>
+  <p align="center">📊 Update  pinned gist / profile README  to contain your weekly WakaTime stats. </p>
   <p align="center">  A Golang implementation, see the original version  <a href="https://github.com/matchai/waka-box">waka-box</a>
    <p align="center">
     <a href="https://github.com/YouEclipse/waka-box-go/workflows/Update%20gist%20with%20WakaTime%20stats/badge.svg?branch=master"><img src="https://github.com/YouEclipse/waka-box-go/workflows/Update%20gist%20with%20WakaTime%20stats/badge.svg?branch=master" alt="Update gist with WakaTime stats"></a>
@@ -27,18 +27,19 @@ English | [简体中文](./README_zh.md)
 1. Create a WakaTime account (https://wakatime.com/signup)
 1. In your WakaTime profile settings (https://wakatime.com/settings/profile) ensure `Display coding activity publicly` and `Display languages, editors, operating systems publicly` are checked.
 1. In your account settings, copy the existing WakaTime API Key (https://wakatime.com/settings/api-key)
-
-### 🚀 Project setup
-
-1. Fork this repo
 1. For updating a markdown file，add comments to the place where you want to update in the markdown file.
    ```markdown
     <!-- waka-box start -->
     <!-- waka-box end -->
    ```
+
+### 🚀 Project setup
+
+1. Fork this repo
+
 1. Edit the [environment variable](https://github.com/YouEclipse/waka-box-go/actions/runs/126970182/workflow#L17-L19) in `.github/workflows/schedule.yml`:
 
-   > For updating github profile README,you can follow [waka-box.yml](https://github.com/YouEclipse/YouEclipse/blob/master/.github/workflows/waka-box.yml) in [YouEclipse](https://github.com/YouEclipse/YouEclipse) to create a Action in your README repo.
+   > For updating github profile README,you can follow [waka-box.yml](https://github.com/YouEclipse/YouEclipse/blob/master/.github/workflows/waka-box.yml) in [YouEclipse](https://github.com/YouEclipse/YouEclipse) to create a Action in your README repo.Remember it's unsafe to use token with **`repo`** scope for updating the repo, waka-box update the profile repo using git command in Github Action instead of using github API.
 
    - **UPDATE_OPTION:** Default is `GIST`.For only update a markdown file ,set to`MARKDOWN`,and ignore environment variables with prefix **GIST\_** below.Set to `GIST_AND_MARKDOWN` updates both the gist and the markdown file.
    - **MARKDOWN_FILE:** The filename for the markdown file.
@@ -51,8 +52,8 @@ English | [简体中文](./README_zh.md)
    - **GIST_BARLENGTH:** Length of the progress bar. Default is 21. Set to -1 to auto size the bar.
    - **GIST_TIMESTYLE** Abbreviate the time text. Default is "LONG" ( "# hrs # mins" ). "SHORT" updates the text to "#h#m".
 
-1. Go to the repo **Settings > Secrets**
-1. Add the following environment variables:
+2. Go to the repo **Settings > Secrets**
+3. Add the following environment variables:
    - **GH_TOKEN:** The GitHub token generated above.
    - **WAKATIME_API_KEY:** The API key for your WakaTime account.
 
