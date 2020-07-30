@@ -21,7 +21,7 @@ jobs:
       GIST_BARSTYLE: SOLIDLT
       GIST_BARLENGTH: -1
       GIST_TIMESTYLE: SHORT
-
+      UPDATE_OPTION: GIST
     steps:
       - name: Set up Go 1.x
         uses: actions/setup-go@v2
