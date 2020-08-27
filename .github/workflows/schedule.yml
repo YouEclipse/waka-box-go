@@ -1,6 +1,7 @@
 name: Update gist with WakaTime stats
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - master
@@ -9,6 +10,7 @@ on:
       - master
   schedule:
     - cron: "0 0 * * *"
+
 
 jobs:
   build:
