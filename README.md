@@ -40,6 +40,8 @@ English | [简体中文](./README_zh.md)
 1. Edit the [environment variable](https://github.com/YouEclipse/waka-box-go/actions/runs/126970182/workflow#L17-L19) in `.github/workflows/schedule.yml`:
 
    > For updating github profile README,you can follow [waka-box.yml](https://github.com/YouEclipse/YouEclipse/blob/master/.github/workflows/waka-box.yml) in [YouEclipse](https://github.com/YouEclipse/YouEclipse) to create a Action in your README repo.Remember it's unsafe to use token with **`repo`** scope for updating the repo, waka-box update the profile repo using git command in Github Action instead of using github API.
+   
+   > DO NOT CHANGE THE WAKATIME_API_KEY or GH_TOKEN VALUES IN THIS FILE, USE THE REPO SECRETS SET BELOW. FAILURE TO DO THIS WILL MAKE YOUR WAKATIME API KEY PUBLIC AND CAN POTENTIALLY EXPOSE SENSITIVE INFORMATION.
 
    - **UPDATE_OPTION:** Default is `GIST`.For only update a markdown file ,set to`MARKDOWN`,and ignore environment variables with prefix **GIST\_** below.Set to `GIST_AND_MARKDOWN` updates both the gist and the markdown file.
    - **MARKDOWN_FILE:** The filename for the markdown file.
