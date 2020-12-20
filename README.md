@@ -36,8 +36,9 @@ English | [简体中文](./README_zh.md)
 ### 🚀 Project setup
 
 1. Fork this repo
+   
 
-1. Edit the [environment variable](https://github.com/YouEclipse/waka-box-go/actions/runs/126970182/workflow#L17-L19) in `.github/workflows/schedule.yml`:
+2. Edit the [environment variable](https://github.com/YouEclipse/waka-box-go/actions/runs/126970182/workflow#L17-L19) in `.github/workflows/schedule.yml`:
 
    > For updating github profile README,you can follow [waka-box.yml](https://github.com/YouEclipse/YouEclipse/blob/master/.github/workflows/waka-box.yml) in [YouEclipse](https://github.com/YouEclipse/YouEclipse) to create a Action in your README repo.Remember it's unsafe to use token with **`repo`** scope for updating the repo, waka-box update the profile repo using git command in Github Action instead of using github API.
    
@@ -54,8 +55,8 @@ English | [简体中文](./README_zh.md)
    - **GIST_BARLENGTH:** Length of the progress bar. Default is 21. Set to -1 to auto size the bar.
    - **GIST_TIMESTYLE** Abbreviate the time text. Default is "LONG" ( "# hrs # mins" ). "SHORT" updates the text to "#h#m".
 
-2. Go to the repo **Settings > Secrets**
-3. Add the following environment variables:
+3. Go to the repo **Settings > Secrets**
+4. Add the following environment variables:
    - **GH_TOKEN:** The GitHub token generated above.
    - **WAKATIME_API_KEY:** The API key for your WakaTime account.
 
