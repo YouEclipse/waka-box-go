@@ -3,7 +3,6 @@ package wakabox
 import (
 	"context"
 	"fmt"
-	"io/ioutil"
 	"os"
 	"strings"
 	"testing"
@@ -232,7 +231,7 @@ Other      🕓 32m   ▋░░░░░░░░░░░░░░░░░░�
 	if err != nil {
 		t.Error(err)
 	}
-	c, _ := ioutil.ReadFile(filename)
+	c, _ := os.ReadFile(filename)
 	if err != nil {
 		t.Error(err)
 	}
