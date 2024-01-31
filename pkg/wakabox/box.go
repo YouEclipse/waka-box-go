@@ -119,12 +119,11 @@ func (b *Box) UpdateMarkdown(ctx context.Context, title, filename string, conten
 
 	newMd := bytes.NewBuffer(nil)
 	newMd.Write(before)
-	newMd.WriteString("\n" + title + "\n")
-	newMd.WriteString("```text\n")
+	newMd.WriteString("\n```text\n")
 	newMd.Write(content)
 	newMd.WriteString("\n")
 	newMd.WriteString("```\n")
-	newMd.WriteString("<!-- Powered by https://github.com/YouEclipse/waka-box-go . -->\n")
+	newMd.WriteString("<!-- Powered by https://github.com/realSunyz/waka-box-go . -->\n")
 	newMd.Write(after)
 
 	err = os.WriteFile(filename, newMd.Bytes(), os.ModeAppend)
