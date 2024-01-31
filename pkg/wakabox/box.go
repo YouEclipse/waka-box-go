@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"context"
 	"fmt"
-	"io/ioutil"
 	"math"
 	"os"
 	"strconv"
@@ -108,7 +107,7 @@ func (b *Box) UpdateGist(ctx context.Context, id string, gist *github.Gist) erro
 }
 
 func (b *Box) UpdateMarkdown(ctx context.Context, title, filename string, content []byte) error {
-	md, err := ioutil.ReadFile(filename)
+	md, err := os.ReadFile(filename)
 	if err != nil {
 		return fmt.Errorf("wakabox.UpdateMarkdown: Error reade a file: %w", err)
 	}
@@ -120,15 +119,14 @@ func (b *Box) UpdateMarkdown(ctx context.Context, title, filename string, conten
 
 	newMd := bytes.NewBuffer(nil)
 	newMd.Write(before)
-	newMd.WriteString("\n" + title + "\n")
-	newMd.WriteString("```text\n")
+	newMd.WriteString("\n```text\n")
 	newMd.Write(content)
 	newMd.WriteString("\n")
 	newMd.WriteString("```\n")
-	newMd.WriteString("<!-- Powered by https://github.com/YouEclipse/waka-box-go . -->\n")
+	newMd.WriteString("<!-- Powered by https://github.com/realSunyz/waka-box-go . -->\n")
 	newMd.Write(after)
 
-	err = ioutil.WriteFile(filename, newMd.Bytes(), os.ModeAppend)
+	err = os.WriteFile(filename, newMd.Bytes(), os.ModeAppend)
 	if err != nil {
 		return fmt.Errorf("wakabox.UpdateMarkdown: Error write a file: %w", err)
 	}
@@ -177,9 +175,10 @@ func (b *Box) ConstructLine(ctx context.Context, stat wakatime.StatItem) string 
 // Percent is a float64 from 0-100 representing the progress bar percentage
 // Size is an int representing the length of the progress bar in characters
 // BarType is a BarType representing the type of barchart: It can be one of the following:
-//    SOLIDLT SOLIDMD SOLIDDK: Block characters with a dotted background
-//    UNDERSCORE: Block characters with an line accross the boottom
-//    EMPTY: Block characters with an empty background
+//
+//	SOLIDLT SOLIDMD SOLIDDK: Block characters with a dotted background
+//	UNDERSCORE: Block characters with an line accross the boottom
+//	EMPTY: Block characters with an empty background
 func GenerateBarChart(ctx context.Context, percent float64, size int, barType string) string {
 	// using rune as for utf-8 encoding
 	syms := BarStyle[barType]
